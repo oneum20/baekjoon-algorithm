@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Main {
+class EX2798 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     
@@ -28,23 +28,6 @@ class Main {
     }
     
     System.out.println(max);
-  }
-  
-  public static int brute(int[] nums, int start, int curr, int cnt, int max, int m){
-    if(start >= nums.length - 1) return max;
-    
-    cnt++;
-    
-    for(int i = start; i < nums.length; i++){
-      if(cnt < 3){
-        max = brute(nums, i + 1, curr + nums[i], cnt, max, m);
-      }else{
-        max = curr + nums[i] > m ? max : Math.max(max, curr + nums[i]);
-      }
-      
-    }
-    
-    return max;
   }
   
 }

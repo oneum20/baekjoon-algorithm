@@ -6,7 +6,7 @@ class EX2447 {
     
     int n = sc.nextInt();
     
-    int[][] res = Main.prt(n);
+    int[][] res = EX2447.prt(n);
     
     for(int j = 0; j < res.length; j++){
       String str = "";
