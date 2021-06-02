@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-class Main {
+class EX1018 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     
@@ -21,31 +21,22 @@ class Main {
   public static int f(String[] strArr, int m, int n){
     int min = Integer.MAX_VALUE;
     
-    String strTmp = "";
-    int[] cntTmp = new int[2];
-    int[] cnt = new int[2];
+    String[] tmp = new String[8];
     for(int i = 0; i + 7 < n; i++){
       for(int j = 0; j + 7 < m ; j++){
         for(int k = 0; k < 8; k++){
-          strTmp = strArr[j + k].substring(i, i + 8);
-          cntTmp = minCntDiff(strTmp, k);
-          
-          cnt[0] += cntTmp[0];
-          cnt[1] += cntTmp[1];
+          tmp[k] = strArr[j + k].substring(i, i + 8);
         }
-        
-        min = Math.min(min, Math.min(cnt[0], cnt[1]));
-        
-        cnt[0] = 0;
-        cnt[1] = 0;
+        min = Math.min(min, minCntDiff(tmp));
       }
     }
     
     return min;
   }
   
-  public static int[] minCntDiff(String source, int i){
-    int[] res = new int[2];
+  public static int minCntDiff(String[] source){
+    int cnt = 0;
+    int min = Integer.MAX_VALUE;
     int[][] targets = {
       {0b10101010,
       0b01010101},
@@ -53,10 +44,17 @@ class Main {
       0b10101010}
     };
     
-    int tmp = Integer.parseInt(source, 2);
-    res[0] = Integer.bitCount(tmp^targets[0][i%2]);
-    res[1] = Integer.bitCount(tmp^targets[1][i%2]);
-    return res;
+    int tmp;
+    for(int[] item : targets){
+      for(int i = 0; i < source.length; i++){
+        tmp = Integer.parseInt(source[i], 2);
+        cnt += Integer.bitCount(tmp^item[i%2]);
+      }
+      min = Math.min(min, cnt);
+      cnt = 0;
+    }
+    
+    return min;
   }
   
 }
