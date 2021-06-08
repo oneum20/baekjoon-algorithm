@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Main {
+class EX1010 {
   static int[][] dp = new int[30][30];
   
   public static void main(String[] args) {
@@ -30,5 +30,4 @@ class Main {
     
     return dp[n][r] = c(n - 1, r - 1) + c(n - 1, r);
   }
-  
 }
