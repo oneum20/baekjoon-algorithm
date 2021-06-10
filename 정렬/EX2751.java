@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 
-class Main {
+class EX2751 {
   public static void main(String[] args) {
     StringBuilder sb = new StringBuilder();
     Scanner sc = new Scanner(System.in);
