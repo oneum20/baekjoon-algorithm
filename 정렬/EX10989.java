@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-class Main {
+class EX10989 {
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
