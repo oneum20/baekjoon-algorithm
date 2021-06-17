@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
  
-public class Main {
+public class EX11650 {
 	public static void main(String[] args) {
     StringBuilder sb = new StringBuilder();
 		Scanner in = new Scanner(System.in);
