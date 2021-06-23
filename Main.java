@@ -1,32 +1,35 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
- 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
-	public static void main(String[] args) {
-    StringBuilder sb = new StringBuilder();
-		Scanner in = new Scanner(System.in);
-		
-		int n = in.nextInt();
-		
-		int[][] pos = new int[n][2];
-		
-		for(int i = 0; i < n; i++) {
-			pos[i][0] = in.nextInt();
-			pos[i][1] = in.nextInt();
-		}
-		
-		Arrays.sort(pos, (a, b) -> {
-			if(a[0] == b[0]) {
-				return a[1] - b[1];
-			} else {
-				return a[0] - b[0];
-			}
-		});
-		
-		for(int[] a : pos) {
-		  sb.append(a[0] + " " + a[1]).append("\n");
-		}
-		
-		System.out.println(sb);
-	}
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+
+        String[] input = br.readLine().split(" ");
+        int[] nums = new int[N];
+        for (int i = 0; i < N; i++)
+            nums[i] = Integer.parseInt(input[i]);
+
+        int[] sortNums = nums.clone();
+        Arrays.sort(sortNums);
+
+        Map<Integer, Integer> map = new HashMap<>();
+        int idx = 0;
+        for (int n : sortNums)
+            if (!map.containsKey(n))
+                map.put(n, idx++);
+
+        StringBuilder sb = new StringBuilder();
+        for (int n : nums)
+            sb.append(map.get(n)).append(' ');
+
+        System.out.println(sb.toString());
+
+
+    }
 }
