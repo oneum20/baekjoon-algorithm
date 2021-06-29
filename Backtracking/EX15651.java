@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-public class Main {
+public class EX15651 {
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
         
@@ -11,7 +11,7 @@ public class Main {
         
         
         ArrayList<String> list = new ArrayList<>();
-        bt(N, M, 1, list, "");
+        bt(N, M, list, "");
         for(String str : list){
           sb.append(str).append("\n");
         }
@@ -19,14 +19,14 @@ public class Main {
         System.out.println(sb);
     }
     
-    public static void bt(int N, int M, int start, ArrayList<String> list, String curr){
+    public static void bt(int N, int M, ArrayList<String> list, String curr){
       if(M <= 0){
         list.add(curr);
         return;
       }
       
-      for(int i = start; i <= N; i++){
-        bt(N, M - 1, i, list, curr + i + " ");
+      for(int i = 1; i <= N; i++){
+        bt(N, M - 1, list, curr + i + " ");
       }
     }
     

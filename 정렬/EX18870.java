@@ -8,26 +8,26 @@ import java.util.Map;
 public class EX18870 {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    int n = Integer.parseInt(br.readLine());
+    int N = Integer.parseInt(br.readLine());
 
     String[] input = br.readLine().split(" ");
-    int[] nums = new int[n];
-    for (int i = 0; i < n; i++)[
+    int[] nums = new int[N];
+    for (int i = 0; i < N; i++){
       nums[i] = Integer.parseInt(input[i]);
-    ]        
+    }
 
     int[] sortedNums = nums.clone();
     Arrays.sort(sortedNums);
 
     Map<Integer, Integer> map = new HashMap<>();
     int idx = 0;
-    for (int n : sortedNums){
-      if (!map.containsKey(n)) map.put(n, idx++);
+    for (int i : sortedNums){
+      if (!map.containsKey(i)) map.put(i, idx++);
     }
 
     StringBuilder sb = new StringBuilder();
-    for (int n : nums)
-        sb.append(map.get(n)).append(' ');
+    for (int i : nums)
+        sb.append(map.get(i)).append(' ');
 
     System.out.println(sb.toString());
   }

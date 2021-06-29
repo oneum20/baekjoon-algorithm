@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-public class Main {
+public class EX15652 {
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
         

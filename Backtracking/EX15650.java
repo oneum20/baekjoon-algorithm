@@ -1,14 +1,13 @@
 import java.util.*;
 
 
-public class Main {
+public class EX15650 {
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
         
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int M = sc.nextInt();
-        
         
         ArrayList<String> list = new ArrayList<>();
         bt(N, M, 1, list, "");
@@ -26,7 +25,7 @@ public class Main {
       }
       
       for(int i = start; i <= N; i++){
-        bt(N, M - 1, i, list, curr + i + " ");
+        bt(N, M - 1, i + 1, list, curr + i + " ");
       }
     }
     
