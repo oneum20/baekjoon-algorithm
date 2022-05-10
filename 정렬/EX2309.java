@@ -26,7 +26,6 @@ public class EX2309 {
         }
 
         except();
-
         Arrays.sort(nums);
         for (int i : nums) {
             if (i != exn[0] && i != exn[1])
